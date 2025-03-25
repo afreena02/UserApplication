@@ -1,5 +1,5 @@
-Laravel 12 Test Project with Laragon
-This repository is a test project built with Laravel 12. Below are the installation steps to set up the development environment using Laragon.
+Laravel 12 User Application Project with Laragon
+This repository is a User Application project built with Laravel 12. Below are the installation steps to set up the development environment using Laragon.
 
 Prerequisites
 Before you begin, ensure you have the following installed:
