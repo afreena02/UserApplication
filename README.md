@@ -1,66 +1,97 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+Laravel 12 Test Project with Laragon
+This repository is a test project built with Laravel 12. Below are the installation steps to set up the development environment using Laragon.
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Prerequisites
+Before you begin, ensure you have the following installed:
 
-## About Laravel
+PHP (>= 8.1)
+Composer
+Laragon
+Step 1: Install Laragon
+Download Laragon:
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Go to the official Laragon website and download the latest version.
+Install Laragon:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Run the installer and follow the on-screen instructions.
+Choose a directory (e.g., C:\laragon).
+Start Apache and MySQL:
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Open Laragon and click Start All to start the Apache and MySQL servers.
+Step 2: Install Composer
+Download Composer:
 
-## Learning Laravel
+Go to the official Composer website and download the installer.
+Install Composer:
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Run the installer and follow the setup process.
+Verify Composer Installation:
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+composer --version
+This should display the installed version of Composer.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Step 3: Clone the Repository
+Open Laragon Terminal and navigate to the www directory:
+cd C:\laragon\www
+Clone the repository:
+git clone https://github.com/afreena02/UserApplication.git
+Navigate to the project directory:
+cd UserApplication
+Step 4: Install Laravel Dependencies
+Run the following command to install the required dependencies:
 
-## Laravel Sponsors
+composer install
+Step 5: Create the Database
+Open Laragon and click Database > MySQL > phpMyAdmin.
+Create a new database named website_test.
+Alternatively, you can create the database via MySQL command line:
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+mysql -u root -p
+CREATE DATABASE website_test;
+Step 6: Configure the .env File
+Copy the .env.example file to .env:
 
-### Premium Partners
+cp .env.example .env
+Edit the .env file with the following database credentials:
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=website_test
+DB_USERNAME=root
+DB_PASSWORD=
+Step 7: Generate the Application Key
+Run the following command:
 
-## Contributing
+php artisan key:generate
+This will update the APP_KEY in your .env file.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Step 8: Run Migrations
+Run the database migrations to create the necessary tables:
 
-## Code of Conduct
+php artisan migrate
+If your project includes seeders, run:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+php artisan db:seed
+Step 9: Create Storage Link
+Run the following command to link the storage folder:
 
-## Security Vulnerabilities
+php artisan storage:link
+Step 10: Optimize the Application
+Run the following command to optimize performance:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+php artisan optimize
+Step 11: Serve the Application
+Use the Laravel built-in server to run the application:
 
-## License
+php artisan serve
+The application will be available at http://127.0.0.1:8000.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Troubleshooting
+Laragon Not Starting: Ensure required ports (80 for Apache, 3306 for MySQL) are not being used by other applications.
+Composer Issues: If you encounter dependency issues, try:
+composer update
+composer install
+composer clear-cache
+Conclusion
+You've successfully set up Laravel 12 on your local machine using Laragon. You can now start building and testing your application!
