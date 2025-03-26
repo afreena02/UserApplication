@@ -238,6 +238,7 @@
         document.getElementById("resetButton").addEventListener("click", function() {
             document.getElementById("passwordInput").value = "";
         });
+        
     </script>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
