@@ -184,7 +184,7 @@
                                     <label class="form-label col-md-3">PASSWORD</label>
                                     <input type="password" class="form-control col-md-6" name="password"
                                         id="passwordInput">
-                                    <button type="button" onclick="resetPassword()" class="btn btn-secondary col-md-3"
+                                    <button type="button" class="btn btn-secondary col-md-3"
                                         id="resetButton">RESET</button>
                                 </div>
                                 @error('password')
@@ -207,7 +207,7 @@
                             </div>
 
                             <!-- Right Side (Photo Upload) -->
-                            <div class="col-md-4 d-flex flex-column align-items-end">
+                            <div class="col-md-4 d-flex flex-column align-items-end" style="max-height: 180px;">
                                 <div class="photo-box d-flex align-items-center justify-content-center"
                                     style="width: 120px; height: 120px; background: blue; color: white; font-weight: bold; cursor: pointer; border-radius: 5px;">
                                     <label for="photoUpload" style="cursor: pointer; margin: 0;">Photo</label>
@@ -235,14 +235,9 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        function resetPassword() {
-            let passwordField = document.getElementById("passwordInput");
-            if (passwordField) {
-                passwordField.value = "";
-            } else {
-                console.error("Password input field not found.");
-            }
-        }
+        document.getElementById("resetButton").addEventListener("click", function() {
+            document.getElementById("passwordInput").value = "";
+        });
     </script>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
